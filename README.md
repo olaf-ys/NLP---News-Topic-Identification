@@ -13,6 +13,8 @@ Finally, I chose the most promising embedding method (i.e. GloVe) and used deep 
 ## Deep Learning
 The fundamental technique that lies under today’s Large Language Models is the Recurrent Neural Network. However, it is hard for RNN to keep track of early information due to gradient exploding/vanishing issues that usually happen when the sequence length, or equivalently, the time step is greater than 100. LSTM, on the other hand, partially fixes this problem by using gate control. To investigate these two models, I built 2 LSTMs (one with pre-train GloVe as its embedding and one with an embedding layer) and one RNN. 
 
+![示例图片](Images/Screenshot.png)
+
 The data preparation procedures are as follows:
 1. Embed each token into a fixed-size vector (n_dim << n_tokens)\
 ‘I’ → [0.2, 0.1], ‘am’ → [0.8, 0.63], ‘batman’ → [0.33, 0.99]

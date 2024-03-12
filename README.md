@@ -30,7 +30,7 @@ The data preparation procedures are as follows:
 5. One-hot encode the target\
 [‘Business’, ‘Entertainment’, ‘Sci/Tech’, ‘Sports’] → [[1,0,0,0], [0,1,0,0], [0,0,1,0], [0,0,0,1]]
 
-Further, the Convolutional technique has proven its efficiency in combining with LSTM and RNN for feature extraction and dimensionality reduction. So before I passed the document matrix to the hidden layer of the LSTM and RNN, I used the convolutional and max pooling layer to perform feature extraction, reducing time steps from 180 to 44 and embedding dimension from 100 to 80.
+Further, the convolutional technique has proven its efficiency in combining with LSTM and RNN for feature extraction and dimensionality reduction. So before I passed the document matrix to the hidden layer of the LSTM and RNN, I used the convolutional and max pooling layer to perform feature extraction, reducing time steps from 180 to 44 and embedding dimension from 100 to 80.
 
 <img src="Images/Convolution-Maxpooling.png" alt="示例图片" width="620" height="307">
 

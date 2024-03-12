@@ -13,7 +13,7 @@ Finally, I chose the most promising embedding method (i.e. GloVe) and used deep 
 ## Deep Learning
 The fundamental technique that lies under today’s Large Language Models is the Recurrent Neural Network. However, it is hard for RNN to keep track of early information due to gradient exploding/vanishing issues that usually happen when the sequence length, or equivalently, the time step is greater than 100. LSTM, on the other hand, partially fixes this problem by using gate control. To investigate these two models, I built 2 LSTMs (one with pre-train GloVe as its embedding and one with an embedding layer) and one RNN. 
 
-The preprocessing procedures are as follows:
+The data preparation procedures are as follows:
 1. Embed each token into a fixed-size vector (n_dim << n_tokens)\
 ‘I’ → [0.2, 0.1], ‘am’ → [0.8, 0.63], ‘batman’ → [0.33, 0.99]
 
@@ -26,7 +26,7 @@ The preprocessing procedures are as follows:
 5. One-hot encode the target\
 [‘Business’, ‘Entertainment’, ‘Sci/Tech’, ‘Sports’] → [[1,0,0,0], [0,1,0,0], [0,0,1,0], [0,0,0,1]]
 
-Further, the Convolutional technique has proven its efficiency in combining with LSTM and RNN for feature extraction and dimensionality reduction. So before I pass the document matrix to the hidden layer of the LSTM and RNN, I used the convolutional and max pooling layer to perform feature extraction, reducing time steps from 180 to 44 and embedding dimension from 100 to 80.
+Further, the Convolutional technique has proven its efficiency in combining with LSTM and RNN for feature extraction and dimensionality reduction. So before I passed the document matrix to the hidden layer of the LSTM and RNN, I used the convolutional and max pooling layer to perform feature extraction, reducing time steps from 180 to 44 and embedding dimension from 100 to 80.
 
 ## Conclusions
 * On the one hand, vectorization methods such as BoW and TF-IDF give descent accuracy when applied to traditional ML models such as random forest (the test accuracies for BoW and TF-IDF are both 0.78). However, they are inevitably subject to the curse of dimensionality (dimension of features = the number of unique tokens of the entire dataset, which is 34626). As a result, the number of dimensions exceeds the number of training samples, leading to overfitting and exhausting computation.

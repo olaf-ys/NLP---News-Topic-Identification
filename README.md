@@ -30,6 +30,8 @@ The data preparation procedures are as follows:
 
 Further, the Convolutional technique has proven its efficiency in combining with LSTM and RNN for feature extraction and dimensionality reduction. So before I passed the document matrix to the hidden layer of the LSTM and RNN, I used the convolutional and max pooling layer to perform feature extraction, reducing time steps from 180 to 44 and embedding dimension from 100 to 80.
 
+<img src="Images/Convolution-Maxpooling.png" alt="示例图片" width="620" height="307">
+
 ## Conclusions
 * On the one hand, vectorization methods such as BoW and TF-IDF give descent accuracy when applied to traditional ML models such as random forest (the test accuracies for BoW and TF-IDF are both 0.78). However, they are inevitably subject to the curse of dimensionality (dimension of features = the number of unique tokens of the entire dataset, which is 34626). As a result, the number of dimensions exceeds the number of training samples, leading to overfitting and exhausting computation.
 * On the other hand, embedding methods such as Word2Vec and GloVe are more elegant ways to achieve similar or even better performance. Moreover, I observed that the average and TF-IDF/IDF weighted average of word embeddings are similarly effective in achieving a document-level vector representation. For Word2Vec, taking the average and IDF weighted average of its embedding both gives test accuracies of 0.72 and taking the TF-IDF weighted average gives a test accuracy of 0.73. Therefore, in our project, It is sufficient to use the average of word embedding.

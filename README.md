@@ -1,5 +1,6 @@
 # NLP - News Topic Identification
 -- Yuanshan Zhang, Mengxin Zhao, Yahui Wen, Yiming Wang, Jiayun Liu
+Note: Due to limited time, we should have calculated and used cross-validation scores to compare the models rather using text scores.
 
 ## What I did
 **1. NLP**\

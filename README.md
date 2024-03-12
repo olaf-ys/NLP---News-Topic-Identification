@@ -3,7 +3,7 @@
 
 ## What I did
 **1. NLP**\
-In this project, I applied text mining techniques to the AG news corpus to classify the news based on their categories. First, I cleaned up and converted the txt file into csv format. Second, I randomly sampled 5000 data points from 4 categories:  'Business', 'Entertainment', 'Sports', 'Sci/Tech', and split the sampled data into a train set and test set. Then, I preprocessed the text data by using regular expressions, tokenizing the text, removing stop words, and lemmatizing the tokens. 
+In this project, I applied text mining techniques to the AG news corpus to classify the news based on their categories. First, I cleaned up and converted the txt file into csv format. Second, I randomly sampled 5000 data points from 4 categories:  'Business', 'Entertainment', 'Sports', 'Sci/Tech', and split the sampled data into a train set and test set. Then, I preprocessed the text data by using regular expressions, tokenizing , removing stop words, and lemmatizing. 
 
 After preprocessing, I applied vectorization and embedding to preprocessed documents. For vectorization, I used BoW (Bag of Words) and TF-IDF (Term Frequency - Inverse Document Frequency). For embedding, I trained a Word2Vec model and loaded a pre-trained GloVe model("glove-wiki-gigaword-100") and calculated their average, TF-IDF weighted average, and IDF-weighted average. 
 
@@ -13,7 +13,7 @@ After vectorizing and embedding, I compared the performance of BoW, TF-IDF, Word
 Finally, I chose the most promising embedding method (i.e. GloVe) and used deep learning to enhance its performance. Moreover, I built several different deep-learning models for further investigation. 
 
 **3. Deep Learning**\
-The fundamental technique that lies under today’s Large Language Models is the Recurrent Neural Network. However, it is hard for RNN to keep track of early information due to gradient exploding/vanishing issues that usually happen when the sequence length, or equivalently, the time step is greater than 100. LSTM, on the other hand, partially fixes this problem by using gate control. To investigate these two models, I built 2 LSTMs (one with pre-train GloVe as its embedding and one with an embedding layer) and one RNN. 
+The fundamental technique that lies under today’s Large Language Models is the Recurrent Neural Network. However, it is hard for RNN to keep track of early information due to gradient exploding/vanishing issues that usually happen when the sequence length, or equivalently, the time step is greater than 100. LSTM, on the other hand, partially fixes this problem by using gate control. To investigate these two models, I built two LSTMs (one with pre-train GloVe as its embedding and one with an embedding layer) and one RNN. 
 
 ![示例图片](Images/RNN-LSTM.png)
 

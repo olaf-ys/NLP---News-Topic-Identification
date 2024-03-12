@@ -26,7 +26,7 @@ The preprocessing procedures are as follows:
 5. One-hot encode the target\
 [‘Business’, ‘Entertainment’, ‘Sci/Tech’, ‘Sports’] → [[1,0,0,0], [0,1,0,0], [0,0,1,0], [0,0,0,1]]
 
-Further, the Convolutional technique has proven its efficiency in combining with LSTM and RNN by extracting local features and reducing the embedding dimension and sequence length. So before I pass the document matrix to the hidden layer of the LSTM and RNN, I used the convolutional and max pooling layer to perform feature extraction, reducing time steps from 180 to 44 and embedding dimension from 100 to 80.
+Further, the Convolutional technique has proven its efficiency in combining with LSTM and RNN for feature extraction and dimensionality reduction. So before I pass the document matrix to the hidden layer of the LSTM and RNN, I used the convolutional and max pooling layer to perform feature extraction, reducing time steps from 180 to 44 and embedding dimension from 100 to 80.
 
 ## Conclusions
 * On the one hand, vectorization methods such as BoW and TF-IDF give descent accuracy when applied to traditional ML models such as random forest (the test accuracies for BoW and TF-IDF are both 0.78). However, they are inevitably subject to the curse of dimensionality (dimension of features = the number of unique tokens of the entire dataset, which is 34626). As a result, the number of dimensions exceeds the number of training samples, leading to overfitting and exhausting computation.

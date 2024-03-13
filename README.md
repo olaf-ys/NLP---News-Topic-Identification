@@ -10,9 +10,18 @@ In this project, I applied text mining techniques to the AG news corpus to class
 After preprocessing, I applied vectorization and embedding to preprocessed documents. For vectorization, I used BoW (Bag of Words) and TF-IDF (Term Frequency - Inverse Document Frequency). For embedding, I trained a Word2Vec model and loaded a pre-trained GloVe model("glove-wiki-gigaword-100") and calculated their average, TF-IDF weighted average, and IDF-weighted average. 
 
 **2. Supervised ML**\
-After vectorizing and embedding, I compared the performance of BoW, TF-IDF, Word2Vec, and GloVe using Random Forest. 
+After vectorizing and embedding, I compared the performance of BoW, TF-IDF, Word2Vec, and GloVe using Random Forest:
 
-Finally, I chose the most promising embedding method (i.e. GloVe) and used deep learning to enhance its performance. Moreover, I built several different deep-learning models for further investigation. 
+| models | test accuracy |                                     
+|-------|-------|
+| Bag of Words | 0.78 |
+| TF-IDF | 0.78 |
+| Word2Vec - average | 0.72 |
+| Word2Vec - IDF weighted average | 0.73 |
+| Word2Vec - TF-IDF weighted average | 0.72 |
+| "glove-wiki-gigaword-100" - average | 0.80 |
+
+Finally, I chose the most promising embedding method (i.e. GloVe) and used deep learning to enhance its performance.
 
 **3. Deep Learning**\
 The fundamental technique that lies under today’s Large Language Models is the Recurrent Neural Network. However, it is hard for RNN to keep track of early information due to gradient exploding/vanishing issues that usually happen when the sequence length, or equivalently, the time step is greater than 100. LSTM, on the other hand, partially fixes this problem by using gate control. To investigate these two models, I built two LSTMs (one with pre-train GloVe as its embedding and one with an embedding layer) and one RNN. 
@@ -36,9 +45,20 @@ Further, the convolutional technique has proven its efficiency in combining with
 
 <img src="Images/Convolution-Maxpooling.png" alt="示例图片" width="620" height="307">
 
+The model performance is summarized as follows:
+| models | test accuracy |                                     
+|-------|-------|
+| RNN | 0.76 |
+| LSTM | 0.78 |
+| LSTM + "glove-wiki-gigaword-100" | 0.83 |
+
 ## Conclusions
-* On the one hand, vectorization methods such as BoW and TF-IDF give descent accuracy when applied to traditional ML models such as random forest (the test accuracies for BoW and TF-IDF are both 0.78). However, they are inevitably subject to the curse of dimensionality (dimension of features = the number of unique tokens of the entire dataset, which is 34626). As a result, the number of dimensions exceeds the number of training samples, leading to overfitting and exhausting computation.
-* On the other hand, embedding methods such as Word2Vec and GloVe are more elegant ways to achieve similar or even better performance. Moreover, I observed that the average and TF-IDF/IDF weighted average of word embeddings are similarly effective in achieving a document-level vector representation. For Word2Vec, taking the average and IDF weighted average of its embedding both gives test accuracies of 0.72 and taking the TF-IDF weighted average gives a test accuracy of 0.73. Therefore, in our project, It is sufficient to use the average of word embedding.
-* Pre-trained GolVe significantly improves the test accuracy to 0.8. In practice, using a pre-trained word embedding (transfer learning) provides the model with an important language understanding basis that will significantly improve the model's performance, especially when the data is small.
-* LSTM with pre-trained GloVe embedding gives the highest test accuracy (0.83). One advantage of deep learning models over traditional methods is that sequential input allows them to learn the context.
-* Simple RNN and LSTM without pre-trained embeddings tend to overfit, be less accurate, and take longer to converge. Therefore, without a large dataset, using pre-trained embedding is an excellent choice for deep learning in that it makes deep learning models converge faster, and more accurate, and increases their generalizing abilities on unseen data
+- Vectorization methods like Bag of Words (BoW) and Term Frequency-Inverse Document Frequency (TF-IDF) provide descent accuracies with traditional machine learning models, such as Random Forest, achieving test accuracies of 0.78 for both. However, these methods inevitably suffer from the curse of dimensionality due to their high-dimensional sparse representations, which may not effectively capture the semantic richness of text, leading to overfitting issues.
+
+- Embedding techniques such as Word2Vec and GloVe offer more sophisticated solutions by encoding semantic relationships between words, which not only significantly alleviate the curse of dimensionality but also improves model performance by utilizing contextual information. For Word2Vec, using the average, IDF, or TF-IDF weighted average embedding yields similar test accuracies, indicating that simple averaging of word embeddings can be sufficient for achieving document-level vector representations in our project.
+
+- The utilization of pre-trained GloVe embeddings notably enhances test accuracy to 0.8, highlighting the benefits of transfer learning, especially in contexts with limited data availability. Pre-trained word embeddings provide a significant language understanding basis that substantially boosts model performance.
+
+- For deep learning models, LSTM with pre-trained GloVe embeddings achieves the highest test accuracy of 0.83, underscoring the advantage of deep learning models in learning from sequential input and understanding contextual nuances.
+
+- Simple RNNs and LSTMs without pre-trained embeddings are prone to overfitting, exhibit lower accuracy, and converge slower. Therefore, in scenarios with smaller datasets, leveraging pre-trained embeddings emerges as an exceptional practice for accelerating convergence and enhancing performance and generalization ability on unseen data.

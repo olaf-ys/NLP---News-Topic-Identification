@@ -59,6 +59,6 @@ The model performance is summarized as follows:
 
 - The utilization of pre-trained GloVe embeddings notably enhances test accuracy to 0.8, highlighting the benefits of transfer learning, especially in contexts with limited data availability. Pre-trained word embeddings provide a significant language understanding basis that substantially boosts model performance.
 
-- For deep learning models, LSTM with pre-trained GloVe embeddings achieves the highest test accuracy of 0.83, underscoring the advantage of deep learning models in learning from sequential input and understanding contextual nuances.
+- For deep learning models, LSTM with pre-trained GloVe embedding achieves the highest test accuracy of 0.83, underscoring the advantage of deep learning models in learning from sequential input and understanding contextual nuances.
 
 - Simple RNNs and LSTMs without pre-trained embeddings are prone to overfitting, exhibit lower accuracy, and converge slower. Therefore, in scenarios with smaller datasets, leveraging pre-trained embeddings emerges as an exceptional practice for accelerating convergence and enhancing performance and generalization ability on unseen data.
